@@ -17,6 +17,7 @@ SEMPRE:
 
 	atualizacao peso durate o epoch:
 		peso += learning rate * erro ate aquele layer * a (sendo a o valor da função de ativação do nó anterior... sem multiplicar pelo peso da aresta que havia antes)
+	caso seja o primeiro layer dps do input, esse "a" será o valor da feature
 
 	ao final do epoch, divida pelo numero de observações
 ==========================================
