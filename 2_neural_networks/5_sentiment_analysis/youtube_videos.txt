@@ -3,3 +3,9 @@ https://www.youtube.com/watch?v=IsTOnkAKaJw
 
 7_mini_project_1_solution
 https://www.youtube.com/watch?v=l4r5l0HvHRI
+
+15_understanding_neural_noise
+https://www.youtube.com/watch?v=ubqhh4Iv7O4
+
+17_understanding_inefficiences_in_out_network
+https://www.youtube.com/watch?v=4MuS-6ATxCU
