@@ -9,3 +9,7 @@ https://www.youtube.com/watch?v=ubqhh4Iv7O4
 
 17_understanding_inefficiences_in_out_network
 https://www.youtube.com/watch?v=4MuS-6ATxCU
+
+
+23_analysis_whats_going_on_the_weights
+https://www.youtube.com/watch?v=UHsT35pbpcE
