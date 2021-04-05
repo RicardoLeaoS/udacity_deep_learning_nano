@@ -69,7 +69,7 @@ class NeuralNetwork(object):
 
         # TODO: Output layer - Replace these values with your calculations.
         final_inputs = hidden_outputs.dot(self.weights_hidden_to_output) # signals into final output layer
-        final_outputs = self.activation_function(final_inputs) # signals from final output layer
+        final_outputs = final_inputs # self.activation_function(final_inputs) # signals from final output layer
         
         return final_outputs, hidden_outputs
 
@@ -97,15 +97,15 @@ class NeuralNetwork(object):
         
         # TODO: Backpropagated error terms - Replace these values with your calculations.
         # 1 x n_output * 1 x n_output
-        output_error_term = error * (final_outputs * (1 - final_outputs))
+        output_error_term = error # * (final_outputs * (1 - final_outputs))
         
         # 1 x n_output dot n_output x n_hidden => 1 x n_hidden
-        hidden_error_term = output_error_term.dot(hidden_error.T)
+        hidden_error_term = output_error_term.dot(hidden_error.T) * self.weights_hidden_to_output.T
         
         # TODO: Add Weight step (input to hidden) and Weight step (hidden to output).
         # Weight step (input to hidden)
         # n_input x 1 dot 1 x n_hidden => n_input x n_hidden
-        delta_weights_i_h += X[:, None].dot(hidden_error_term)
+        delta_weights_i_h += np.dot(X[:, None], hidden_error_term)
         # Weight step (hidden to output)
         # n_hidden x 1 dot 1 x n_output => n_hidden x n_output
         # 1 x n_hidden and n_hidden x 1_output
@@ -140,7 +140,7 @@ class NeuralNetwork(object):
         
         # TODO: Output layer - Replace these values with the appropriate calculations.
         final_inputs = hidden_outputs.dot(self.weights_hidden_to_output) # signals into final output layer
-        final_outputs = self.activation_function(final_inputs) # signals from final output layer 
+        final_outputs = final_inputs # self.activation_function(final_inputs) # signals from final output layer 
         
         return final_outputs
 
