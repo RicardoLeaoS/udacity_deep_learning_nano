@@ -88,27 +88,21 @@ class NeuralNetwork(object):
         ### Backward pass ###
 
         # TODO: Output error - Replace this value with your calculations.
-        # 1 x output_nodes
         error = y - final_outputs # Output layer error is the difference between desired target and actual output.
+
+        # TODO: Backpropagated error terms - Replace these values with your calculations.
+        output_error_term = error
         
         # TODO: Calculate the hidden layer's contribution to the error
-        # 1 x n_hidden dot n_hidden x n_output => 1 x n_output
-        hidden_error = (hidden_outputs * (1 - hidden_outputs)).dot(self.weights_hidden_to_output)
+        hidden_error = output_error_term.dot(self.weights_hidden_to_output.T)
         
-        # TODO: Backpropagated error terms - Replace these values with your calculations.
-        # 1 x n_output * 1 x n_output
-        output_error_term = error # * (final_outputs * (1 - final_outputs))
-        
-        # 1 x n_output dot n_output x n_hidden => 1 x n_hidden
-        hidden_error_term = output_error_term.dot(hidden_error.T) * self.weights_hidden_to_output.T
+        hidden_error_term = (((hidden_outputs * (1 - hidden_outputs))) * hidden_error)
         
         # TODO: Add Weight step (input to hidden) and Weight step (hidden to output).
         # Weight step (input to hidden)
-        # n_input x 1 dot 1 x n_hidden => n_input x n_hidden
-        delta_weights_i_h += np.dot(X[:, None], hidden_error_term)
+        delta_weights_i_h += np.dot(X[:, None], hidden_error_term[:, None].T)
+
         # Weight step (hidden to output)
-        # n_hidden x 1 dot 1 x n_output => n_hidden x n_output
-        # 1 x n_hidden and n_hidden x 1_output
         delta_weights_h_o += hidden_outputs[:,None].dot(output_error_term[:, None])
         return delta_weights_i_h, delta_weights_h_o
 
@@ -152,3 +146,8 @@ iterations = 100
 learning_rate = 0.1
 hidden_nodes = 2
 output_nodes = 1
+
+#iterations = 300
+#learning_rate = 0.05
+#hidden_nodes = 50
+#output_nodes = 1
