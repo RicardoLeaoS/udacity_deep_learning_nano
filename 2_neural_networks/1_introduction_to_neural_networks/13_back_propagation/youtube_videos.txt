@@ -1,8 +1,0 @@
-https://www.youtube.com/watch?v=1SmY3TZTyUk
-
-In the video below at 1:24, the edges should be directed to the sigmoid function and not the bias at that last layer; the edges of the last layer point to the bias currently which is incorrect.
-https://www.youtube.com/watch?v=tVuZDbUrzzI
-
-
-https://www.youtube.com/watch?v=YAhIBOnbt54
-https://www.youtube.com/watch?v=7lidiTGIlN4
